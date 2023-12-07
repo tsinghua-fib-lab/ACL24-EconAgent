@@ -1,0 +1,128 @@
+agent_policy:
+  clip_param: 0.3
+  entropy_coeff: 0.2
+  entropy_coeff_schedule:
+  - - 0
+    - 0.3
+  - - 10000000
+    - 0.1
+  gamma: 1.0
+  grad_clip: 10.0
+  kl_coeff: 0.0
+  kl_target: 0.01
+  lambda: 1.0
+  lr: 0.0001
+  lr_schedule: null
+  model:
+    custom_model: keras_linear
+    custom_options:
+      logit_hiddens: [256, 256]
+      fully_connected_value: true
+      value_hiddens: [256, 128, 64]
+    max_seq_len: 25
+  use_gae: true
+  vf_clip_param: 50.0
+  vf_loss_coeff: 0.05
+  vf_share_layers: false
+env:
+  agent_reward_type: isoelastic_coin_minus_labor
+  components:
+  - SimpleLabor:
+      mask_first_step: false
+      pareto_param: 8
+      payment_max_skill_multiplier: 950
+      labor_step: 168
+      num_labor_hours: 168
+      scale_obs: true
+  - PeriodicBracketTax:
+      bracket_spacing: us-federal
+      disable_taxes: false
+      period: 1
+      tax_model: us-federal-single-filer-2018-scaled
+      usd_scaling: 12
+      scale_obs: true
+  - SimpleConsumption:
+      mask_first_step: false
+      consumption_rate_step: 0.02
+      max_price_inflation: 0.1
+      max_wage_inflation: 0.05
+  - SimpleSaving:
+      mask_first_step: false
+      scale_obs: true
+      saving_rate: 0.00
+  enable_skill_change: true
+  enable_price_change: true
+  dense_log_frequency: 1
+  labor_cost: 1
+  episode_length: 240
+  period: 12
+  flatten_masks: true
+  flatten_observations: true
+  isoelastic_etas: [0.5, 0.5]
+  labor_exponent: 2
+  skill_change: 0.02
+  price_change: 0.02
+  mixing_weight_gini_vs_coin: 0
+  multi_action_mode_agents: true
+  multi_action_mode_planner: true
+  n_agents: 100
+  planner_reward_type: inv_income_weighted_utility
+  scenario_name: one-step-economy
+  world_size:
+  - 1
+  - 1
+general:
+  ckpt_frequency_steps: 500000
+  cpus: 25
+  episodes: 100000
+  gpus: 4
+  train_planner: false
+planner_policy:
+  clip_param: 0.3
+  entropy_coeff: 0.025
+  entropy_coeff_schedule: null
+  gamma: 0.998
+  grad_clip: 10.0
+  kl_coeff: 0.0
+  kl_target: 0.01
+  lambda: 0.98
+  lr: 0.0003
+  lr_schedule: null
+  model:
+    custom_model: random
+    custom_options: {}
+    max_seq_len: 25
+  use_gae: true
+  vf_clip_param: 50.0
+  vf_loss_coeff: 0.05
+  vf_share_layers: false
+trainer:
+  batch_mode: truncate_episodes
+  env_config: null
+  local_tf_session_args:
+    inter_op_parallelism_threads: 2
+    intra_op_parallelism_threads: 24
+  metrics_smoothing_episodes: null
+  multiagent: null
+  no_done_at_end: false
+  num_envs_per_worker: 10
+  num_gpus: 4
+  num_gpus_per_worker: 0
+  num_sgd_iter: 1
+  num_workers: 20
+  observation_filter: NoFilter
+  rollout_fragment_length: 100
+  seed: null
+  sgd_minibatch_size: 5000
+  shuffle_sequences: true
+  tf_session_args:
+    allow_soft_placement: true
+    device_count:
+      CPU: 25
+      GPU: 4
+    gpu_options:
+      allow_growth: true
+    inter_op_parallelism_threads: 2
+    intra_op_parallelism_threads: 24
+    log_device_placement: false
+  train_batch_size: 10000
