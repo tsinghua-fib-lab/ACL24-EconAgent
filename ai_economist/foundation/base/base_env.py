@@ -990,8 +990,6 @@ class BaseEnvironment(ABC):
         """
         if actions is not None:
             assert isinstance(actions, dict)
-            # with open('/data1/linian/AI-Economist/code/ai_economist/training/log', 'a') as f:
-            #     f.write(f'fucking actions: {actions}')
             self.parse_actions(actions)
 
         if seed_state is not None:

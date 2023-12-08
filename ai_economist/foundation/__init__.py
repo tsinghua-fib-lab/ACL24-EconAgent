@@ -3,8 +3,6 @@
 # SPDX-License-Identifier: BSD-3-Clause
 # For full license text, see the LICENSE file in the repo root
 # or https://opensource.org/licenses/BSD-3-Clause
-import sys
-sys.path.append('/data1/linian/AI-Economist/code/')
 
 from ai_economist.foundation import utils
 from ai_economist.foundation.agents import agent_registry as agents

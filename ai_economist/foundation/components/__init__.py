@@ -14,7 +14,6 @@ from . import (
     redistribution,
     simple_labor,
     simple_consumption,
-    simple_investment,
     simple_saving
 )
 
