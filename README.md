@@ -4,7 +4,7 @@ The implementation of macroeconomic simulation is based on [Foundation](https://
 Zheng, Stephan, et al. "The ai economist: Improving equality and productivity with ai-driven tax policies." arXiv preprint arXiv:2004.13332 (2020).
 
 # Run
-Simulate with GPT-3.5, 100 agents, and 240 months (fill openai.api_key in simulate_utils.py): 
+Simulate with GPT-3.5, 100 agents, and 240 months (fill openai.api_key in simulate_utils.py), **we will update unfilled codes in simulate.py upon acceptance**: 
 
 `python simulate.py --policy_model gpt --num_agents 100 --episode_length 240`
 
