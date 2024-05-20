@@ -1,5 +1,7 @@
-# Large Language Model-Empowered Agents for Simulating Macroeconomic Activities
-The implementation of macroeconomic simulation is based on [Foundation](https://github.com/MaciejMacko/ai-economist), An Economic Simulation Framework, which is announced by this paper: 
+# EconAgent: Large Language Model-Empowered Agents for Simulating Macroeconomic Activities
+Official implementation of this ACL 2024 paper.
+
+It's based on [Foundation](https://github.com/MaciejMacko/ai-economist), An Economic Simulation Framework, which is announced by this paper: 
 
 Zheng, Stephan, et al. "The ai economist: Improving equality and productivity with ai-driven tax policies." arXiv preprint arXiv:2004.13332 (2020).
 
