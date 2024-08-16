@@ -42,7 +42,7 @@ def get_completion(dialogs, temperature=0, max_tokens=100):
     for i in range(max_retries):
         try:
             response = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo",
+                model="gpt-3.5-turbo-0613", # inaccessible now, try gpt-4o-mini
                 messages=dialogs,
                 temperature=temperature,
                 max_tokens=max_tokens
